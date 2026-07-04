@@ -181,6 +181,13 @@ html.js [data-stagger] > * {
     transform: none;
     transition: none;
   }
+  html.js .reveal,
+  html.js [data-reveal]:not([data-stagger]),
+  html.js [data-stagger] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ========================================
