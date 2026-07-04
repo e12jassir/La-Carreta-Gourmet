@@ -963,3 +963,114 @@ section[id] {
   flex: 0 0 auto;
   display: block;
 }
+
+/* ---------- Reviews ---------- */
+.reviews {
+  padding: var(--space-16) var(--space-4);
+  background: var(--charcoal);
+}
+
+.reviews__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-10);
+}
+
+.reviews__controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.review-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.review-nav:hover:not(:disabled) {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.review-nav:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.review-nav:disabled {
+  color: var(--cream-dim);
+  border-color: var(--border);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.reviews__track {
+  display: flex;
+  gap: var(--space-4);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.reviews__track::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews__track:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.review {
+  flex: 0 0 85%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--charcoal-raised);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-md);
+  scroll-snap-align: start;
+}
+
+.review blockquote {
+  flex: 1 1 auto;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  color: var(--cream);
+}
+
+.review figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.review__name {
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.review__src {
+  font-size: var(--text-sm);
+  color: var(--cream-dim);
+}

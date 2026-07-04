@@ -196,11 +196,67 @@
     });
   }
 
+  /* ---------- Reviews carousel ---------- */
+  function initReviewsCarousel() {
+    const track = document.querySelector("[data-reviews]");
+    const prevBtn = document.querySelector("[data-review-prev]");
+    const nextBtn = document.querySelector("[data-review-next]");
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    function getCardWidth() {
+      const card = track.querySelector(".review");
+      if (!card) return track.clientWidth;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap) || 0;
+      return card.offsetWidth + gap;
+    }
+
+    function updateButtons() {
+      const atStart = track.scrollLeft <= 1;
+      const atEnd =
+        track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+      prevBtn.disabled = atStart;
+      nextBtn.disabled = atEnd;
+    }
+
+    function scrollByCards(direction) {
+      const distance = getCardWidth() * direction;
+      track.scrollBy({
+        left: distance,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }
+
+    prevBtn.addEventListener("click", () => scrollByCards(-1));
+    nextBtn.addEventListener("click", () => scrollByCards(1));
+
+    track.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        scrollByCards(-1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        scrollByCards(1);
+      }
+    });
+
+    track.addEventListener("scrollend", updateButtons);
+    window.addEventListener("resize", updateButtons);
+
+    updateButtons();
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
     initSmoothScroll();
     initYear();
     initMenuFilter();
     renderStarRatings();
+    initReviewsCarousel();
   });
 })();
