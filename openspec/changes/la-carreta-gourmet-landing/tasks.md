@@ -45,12 +45,12 @@ Chain strategy: pending
 
 - [x] **TASK-010: Reviews carousel (`styles.css`, `script.js`)**: horizontal scroll-snap track, 3 reviews, prev/next disabled at bounds, keyboard nav, no scroll cues (REQ-REVIEWS-001..004). `feat: reviews carousel`
 
-- [ ] **TASK-011: Visit section (`styles.css`)**: 2-col grid, hours dl, price "$40.000 - $60.000 COP por persona", Instagram CTA, 7-day hours card with status dot (REQ-VISIT-001..003). `feat(css): visit section`
+- [x] **TASK-011: Visit section (`styles.css`)**: 2-col grid, hours dl, price "$40.000 - $60.000 COP por persona", Instagram CTA, 7-day hours card with status dot (REQ-VISIT-001..003). `feat(css): visit section`
 
 ## Phase 4: Motion, responsive and pre-flight
 
-- [ ] **TASK-012: Scroll reveal (`script.js`, `styles.css`)**: IntersectionObserver toggles `.is-visible`, stagger 50ms via `--stagger-index`, reduced-motion instant visible (REQ-CHROME-007, REQ-MENU-004). `feat(js): scroll reveal system`
+- [x] **TASK-012: Scroll reveal (`script.js`, `styles.css`)**: IntersectionObserver toggles `.is-visible`, stagger 50ms via `--stagger-index`, reduced-motion instant visible (REQ-CHROME-007, REQ-MENU-004). `feat(js): scroll reveal system`
 
-- [ ] **TASK-013: Responsive breakpoints (`styles.css`)**: mobile-first queries at 768/1024/1440; collapse hero/about/visit to 1 col, menu 1->2->3, no horizontal scroll at 375px (REQ-CHROME-008). `feat(css): responsive breakpoints`
+- [x] **TASK-013: Responsive breakpoints (`styles.css`)**: mobile-first queries at 768/1024/1440; collapse hero/about/visit to 1 col, menu 1->2->3, no horizontal scroll at 375px (REQ-CHROME-008). `feat(css): responsive breakpoints`
 
-- [ ] **TASK-014: Pre-flight and final verification (`index.html`, `styles.css`, `script.js`)**: run anti-slop matrix (em-dash grep, kickers, glass scope, border+shadow, radius, contrast, picsum seeds, image sizes) (REQ-CHROME-006, REQ-CHROME-009, REQ-CHROME-010); verify all sections, filter, carousel, mobile menu, skip-link, Lighthouse LCP <2.5s, CLS <0.1. `chore: pre-flight and final verification`
+- [x] **TASK-014: Pre-flight and final verification (`index.html`, `styles.css`, `script.js`)**: run anti-slop matrix (em-dash grep, kickers, glass scope, border+shadow, radius, contrast, picsum seeds, image sizes) (REQ-CHROME-006, REQ-CHROME-009, REQ-CHROME-010); verify all sections, filter, carousel, mobile menu, skip-link, Lighthouse LCP <2.5s, CLS <0.1. `chore: pre-flight and final verification`

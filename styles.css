@@ -190,7 +190,7 @@ p {
 /* ---------- Skip link ---------- */
 .skip-link {
   position: absolute;
-  top: -100%;
+  top: var(--space-4);
   left: var(--space-4);
   z-index: var(--z-skip);
   padding: var(--space-3) var(--space-4);
@@ -200,11 +200,12 @@ p {
   color: var(--charcoal);
   background: var(--gold);
   border-radius: var(--radius-sm);
-  transition: top var(--dur-fast) var(--ease-out);
+  transform: translateY(-150%);
+  transition: transform var(--dur-fast) var(--ease-out);
 }
 
 .skip-link:focus {
-  top: var(--space-4);
+  transform: translateY(0);
 }
 
 /* ---------- Navigation ---------- */
