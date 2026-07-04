@@ -562,7 +562,7 @@ section[id] {
 .hero__title {
   max-width: 14ch;
   margin-bottom: var(--space-4);
-  font-size: var(--text-2xl);
+  font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3rem);
   font-weight: 700;
   color: var(--cream);
 }
@@ -654,6 +654,10 @@ section[id] {
     padding: var(--space-12);
   }
 
+  .hero__title {
+    font-size: var(--text-2xl);
+  }
+
   .hero__content {
     padding-bottom: 0;
   }
@@ -664,8 +668,22 @@ section[id] {
 }
 
 @media (min-width: 1024px) {
+  .hero {
+    padding: var(--space-16);
+  }
+
   .hero__content {
     max-width: 1200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    padding: var(--space-20);
+  }
+
+  .hero__content {
+    max-width: var(--container-max);
   }
 }
 
@@ -980,6 +998,12 @@ section[id] {
   display: none;
 }
 
+@media (min-width: 768px) {
+  .menu__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 /* ---------- Star ratings ---------- */
 .stars {
   display: inline-flex;
@@ -1101,6 +1125,18 @@ section[id] {
 .review__src {
   font-size: var(--text-sm);
   color: var(--cream-dim);
+}
+
+@media (min-width: 768px) {
+  .review {
+    flex: 0 0 calc(50% - var(--space-2));
+  }
+}
+
+@media (min-width: 1024px) {
+  .review {
+    flex: 0 0 calc((100% - 2 * var(--space-4)) / 3);
+  }
 }
 
 /* ---------- Visit ---------- */
