@@ -155,10 +155,52 @@
     });
   }
 
+  /* ---------- Star ratings ---------- */
+  function renderStarRatings() {
+    const containers = document.querySelectorAll("[data-rating]");
+    if (!containers.length) return;
+
+    const starPath =
+      "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z";
+
+    containers.forEach((container, index) => {
+      const rating = parseFloat(container.getAttribute("data-rating")) || 0;
+      const fullStars = Math.floor(rating);
+      const hasHalf = rating % 1 >= 0.5;
+      const uniqueId = `star-gradient-${index}`;
+
+      const svgParts = [
+        `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">`,
+        `<defs>`,
+        `<linearGradient id="${uniqueId}">`,
+        `<stop offset="50%" stop-color="#c9922a"/>`,
+        `<stop offset="50%" stop-color="rgba(245,239,230,0.2)"/>`,
+        `</linearGradient>`,
+        `</defs>`,
+      ];
+
+      for (let i = 0; i < 5; i += 1) {
+        let fill;
+        if (i < fullStars) {
+          fill = "#c9922a";
+        } else if (i === fullStars && hasHalf) {
+          fill = `url(#${uniqueId})`;
+        } else {
+          fill = "rgba(245,239,230,0.2)";
+        }
+        svgParts.push(`<path d="${starPath}" fill="${fill}"/>`);
+      }
+
+      svgParts.push("</svg>");
+      container.innerHTML = svgParts.join("");
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
     initSmoothScroll();
     initYear();
     initMenuFilter();
+    renderStarRatings();
   });
 })();

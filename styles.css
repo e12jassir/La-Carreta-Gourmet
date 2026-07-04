@@ -951,3 +951,15 @@ section[id] {
 .menu__note[hidden] {
   display: none;
 }
+
+/* ---------- Star ratings ---------- */
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stars svg {
+  flex: 0 0 auto;
+  display: block;
+}
