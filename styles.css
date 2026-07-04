@@ -155,6 +155,34 @@ p {
   }
 }
 
+/* ---------- Scroll reveal ---------- */
+.reveal,
+[data-reveal]:not([data-stagger]),
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--stagger-index, 0) * 50ms);
+}
+
+.reveal.is-visible,
+[data-reveal]:not([data-stagger]).is-visible,
+[data-stagger].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  [data-reveal]:not([data-stagger]),
+  [data-stagger] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ========================================
    Site chrome
    ======================================== */

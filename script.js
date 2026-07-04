@@ -5,6 +5,48 @@
 (function () {
   "use strict";
 
+  /* ---------- Scroll reveal ---------- */
+  function initReveal() {
+    const revealElements = document.querySelectorAll(".reveal, [data-reveal]");
+    if (!revealElements.length) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      revealElements.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const target = entry.target;
+          if (target.hasAttribute("data-stagger")) {
+            const children = Array.from(target.children).filter(
+              (child) => !child.hasAttribute("hidden")
+            );
+            children.forEach((child, index) => {
+              child.style.setProperty("--stagger-index", String(index));
+            });
+          }
+
+          target.classList.add("is-visible");
+          obs.unobserve(target);
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  }
+
   /* ---------- Mobile navigation ---------- */
   function initMobileNav() {
     const burger = document.querySelector("[data-burger]");
@@ -252,6 +294,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initReveal();
     initMobileNav();
     initSmoothScroll();
     initYear();
