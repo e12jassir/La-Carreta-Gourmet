@@ -89,7 +89,42 @@
     closeMenu(false);
   }
 
+  /* ---------- Smooth scroll with nav offset ---------- */
+  function initSmoothScroll() {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    document.addEventListener("click", (event) => {
+      const anchor = event.target.closest('a[href^="#"]');
+      if (!anchor) return;
+
+      const targetId = anchor.getAttribute("href").slice(1);
+      if (!targetId) return;
+
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  }
+
+  /* ---------- Dynamic year ---------- */
+  function initYear() {
+    const yearEls = document.querySelectorAll("[data-year]");
+    const year = new Date().getFullYear();
+    yearEls.forEach((el) => {
+      el.textContent = String(year);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
+    initSmoothScroll();
+    initYear();
   });
 })();

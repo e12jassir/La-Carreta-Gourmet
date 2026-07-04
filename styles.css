@@ -313,6 +313,11 @@ p {
   }
 }
 
+/* ---------- Smooth-scroll offset ---------- */
+section[id] {
+  scroll-margin-top: var(--nav-height);
+}
+
 /* ---------- Mobile menu ---------- */
 .mobile-menu {
   position: fixed;
@@ -356,4 +361,103 @@ p {
   display: inline-flex;
   margin-top: var(--space-4);
   color: var(--charcoal);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: var(--space-12) var(--space-4) var(--space-8);
+  background: var(--charcoal-raised);
+  border-top: 1px solid var(--border);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.footer__brand em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4) var(--space-8);
+}
+
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--cream-dim);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__links a:hover {
+  color: var(--gold);
+}
+
+.footer__ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--cream-dim);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.footer__ig:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.footer__ig:active {
+  transform: scale(0.97);
+}
+
+.footer__copy {
+  margin-top: var(--space-8);
+  font-size: var(--text-xs);
+  color: var(--cream-dim);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: var(--space-16) var(--space-8) var(--space-12);
+  }
+
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .footer__links {
+    justify-content: flex-start;
+  }
+
+  .footer__copy {
+    margin-top: var(--space-12);
+  }
 }
