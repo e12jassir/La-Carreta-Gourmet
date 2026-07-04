@@ -54,7 +54,7 @@
     <a href="#menu">Menú</a>
     <a href="#resenas">Reseñas</a>
     <a href="#visitanos">Visítanos</a>
-    <a href="#visitanos" class="nav__cta">Reservar mesa</a>
+    <a href="#visitanos" class="nav__cta">Reserva tu mesa</a>
   </div>
 
   <main>
@@ -64,6 +64,8 @@
         <img
           src="https://picsum.photos/seed/carreta-brasa-ambiance/1920/1280"
           alt=""
+          width="1920"
+          height="1280"
           loading="eager"
           decoding="async"
         />
@@ -71,7 +73,7 @@
         <div class="hero__grain" aria-hidden="true"></div>
       </div>
 
-      <div class="hero__content reveal">
+      <div class="hero__content reveal" data-reveal="up">
         <p class="hero__kicker">Cocina costeña a la brasa</p>
         <h1 class="hero__title">
           Brasa,<br /><em>mar y raíz</em> latina.
@@ -89,8 +91,8 @@
         </div>
 
         <div class="hero__actions">
-          <a href="#menu" class="btn btn--ghost">Ver el menú</a>
-          <a href="#visitanos" class="btn btn--gold">Reservar tu mesa</a>
+          <a href="#menu" class="btn btn--ghost">Ver Menú</a>
+          <a href="#visitanos" class="btn btn--gold">Reserva tu mesa</a>
         </div>
       </div>
     </section>
@@ -102,6 +104,8 @@
           <img
             src="https://picsum.photos/seed/carreta-comedor-madera/900/1120"
             alt="Comedor de La Carreta Gourmet con madera añeja y luz cálida"
+            width="900"
+            height="1120"
             loading="lazy"
             decoding="async"
           />
@@ -156,7 +160,6 @@
     <!-- ===== MENU ===== -->
     <section class="menu" id="menu" aria-labelledby="menu-title">
       <div class="menu__head reveal">
-        <p class="kicker">La carta</p>
         <h2 id="menu-title" class="section-title">Fuego, mar y <em>clásicos</em></h2>
         <p class="section-sub">
           Tres cocinas bajo un mismo techo. Filtra por estación o recorre la
@@ -171,7 +174,7 @@
         </div>
       </div>
 
-      <div class="menu__grid" data-menu>
+      <div class="menu__grid" data-menu data-stagger>
         <!-- De la Parrilla -->
         <article class="dish glass" data-section="parrilla" tabindex="0">
           <h3 class="dish__name">Hamburguesa</h3>
@@ -251,7 +254,6 @@
     <!-- ===== REVIEWS ===== -->
     <section class="reviews" id="resenas" aria-labelledby="reviews-title">
       <div class="reviews__head reveal">
-        <p class="kicker">Lo que dicen</p>
         <h2 id="reviews-title" class="section-title">
           Seis estrellas <em>merecidas</em>.
         </h2>
@@ -312,7 +314,6 @@
     <section class="visit" id="visitanos" aria-labelledby="visit-title">
       <div class="visit__grid">
         <div class="visit__col reveal" data-reveal="left">
-          <p class="kicker">Visítanos</p>
           <h2 id="visit-title" class="section-title">
             Te esperamos en la <em>mesa</em>.
           </h2>
@@ -347,7 +348,7 @@
             </div>
           </dl>
 
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Reservar tu mesa</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Reserva tu mesa</a>
         </div>
 
         <div class="visit__col visit__hours reveal" data-reveal="right">
