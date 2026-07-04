@@ -156,9 +156,9 @@ p {
 }
 
 /* ---------- Scroll reveal ---------- */
-.reveal,
-[data-reveal]:not([data-stagger]),
-[data-stagger] > * {
+html.js .reveal,
+html.js [data-reveal]:not([data-stagger]),
+html.js [data-stagger] > * {
   opacity: 0;
   transform: translateY(8px);
   transition: opacity var(--dur-slow) var(--ease-out),
