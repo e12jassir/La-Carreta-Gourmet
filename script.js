@@ -122,9 +122,43 @@
     });
   }
 
+  /* ---------- Menu filter ---------- */
+  function initMenuFilter() {
+    const filters = document.querySelectorAll("[data-filter]");
+    const dishes = document.querySelectorAll("[data-section]");
+    const note = document.querySelector("[data-menu-note]");
+
+    if (!filters.length || !dishes.length) return;
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+
+        filters.forEach((btn) => {
+          const isSelected = btn === button;
+          btn.setAttribute("aria-selected", String(isSelected));
+          btn.classList.toggle("is-active", isSelected);
+        });
+
+        let visibleCount = 0;
+        dishes.forEach((dish) => {
+          const section = dish.getAttribute("data-section");
+          const matches = filter === "all" || section === filter;
+          dish.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+
+        if (note) {
+          note.hidden = visibleCount > 0;
+        }
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
     initSmoothScroll();
     initYear();
+    initMenuFilter();
   });
 })();
