@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1a1410" />
+  <meta name="description" content="Menú completo de La Carreta Gourmet - Parrilla, mariscos, comida rápida y más" />
+  <title>Menú - La Carreta Gourmet</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Saltar al menú</a>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="index.html" aria-label="La Carreta Gourmet, inicio">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <path d="M4 22h24M6 22l2-9h16l2 9M12 13V9a4 4 0 0 1 8 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="26" r="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="22" cy="26" r="2" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <span class="nav__wordmark">
+        La Carreta <em>Gourmet</em>
+      </span>
+    </a>
+
+    <nav class="nav__links" data-nav-links aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="menu.html" aria-current="page">Menú</a>
+      <a href="bebidas.html">Bebidas</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <a href="contacto.html" class="nav__cta">Reservar</a>
+
+    <button class="nav__burger" data-burger aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#nosotros">Nosotros</a>
+    <a href="menu.html">Menú</a>
+    <a href="bebidas.html">Bebidas</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="contacto.html" class="nav__cta">Reserva tu mesa</a>
+  </div>
+
+  <main>
+    <!-- ===== MENU HERO ===== -->
+    <section class="page-hero">
+      <div class="page-hero__content">
+        <h1 class="page-hero__title">Nuestro <em>Menú</em></h1>
+        <p class="page-hero__lede">
+          Fuego, mar y sabores que nos criaron. Cada plato cuenta una historia.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== MENU FILTERS ===== -->
+    <section class="menu-page" id="menu">
+      <div class="menu-page__header">
+        <h2 class="menu-page__title">Fuego, mar y <em>clásicos</em></h2>
+        <p class="menu-page__subtitle">
+          Tres cocinas bajo un mismo techo. Filtra por categoría o descubre la carta completa.
+        </p>
+      </div>
+
+      <div class="menu-page__filters">
+        <button class="filter is-active" data-category="all">Todos</button>
+        <button class="filter" data-category="parrilla">Parrilla</button>
+        <button class="filter" data-category="mariscos">Mariscos</button>
+        <button class="filter" data-category="rapida">Comida Rápida</button>
+        <button class="filter" data-category="acompanantes">Acompañantes</button>
+        <button class="filter" data-category="postres">Postres</button>
+      </div>
+
+      <div class="menu-page__grid" data-menu-grid>
+        <!-- PARRILLA -->
+        <article class="menu-card" data-category="parrilla">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop" alt="Hamburguesa a la brasa" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Parrilla</span>
+            <h3 class="menu-card__name">Hamburguesa</h3>
+            <p class="menu-card__desc">Carne a la brasa, queso fundido y pan brioche tostado al carbón.</p>
+            <p class="menu-card__price">$32.500</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="parrilla">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=400&fit=crop" alt="Carne asada" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Parrilla</span>
+            <h3 class="menu-card__name">Carne Asada</h3>
+            <p class="menu-card__desc">Lomo madurado a la parrilla, chimichurri de la casa y yuca frita.</p>
+            <p class="menu-card__price">$48.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card menu-card--featured" data-category="parrilla">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1615937691194-97dbd3f3dc29?w=600&h=400&fit=crop" alt="Churrasco" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge menu-card__badge--gold">De la casa</span>
+            <h3 class="menu-card__name">Churrasco</h3>
+            <p class="menu-card__desc">Corte de churrasco a la brasa, guarnición costeña y salsa de ají dulce.</p>
+            <p class="menu-card__price">$54.500</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="parrilla">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=400&fit=crop" alt="Costillas BBQ" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Parrilla</span>
+            <h3 class="menu-card__name">Costillas BBQ</h3>
+            <p class="menu-card__desc">Costillas de cerdo marinadas 12 horas, glaseadas con salsa BBQ casera.</p>
+            <p class="menu-card__price">$46.000</p>
+          </div>
+        </article>
+
+        <!-- MARISCOS -->
+        <article class="menu-card menu-card--featured" data-category="mariscos">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=600&h=400&fit=crop" alt="Ceviche Chicharrón" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge menu-card__badge--gold">Plato del chef</span>
+            <h3 class="menu-card__name">Ceviche Chicharrón</h3>
+            <p class="menu-card__desc">Pescado fresco, leche de tigre y chicharrón crujiente con maíz.</p>
+            <p class="menu-card__price">$42.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="mariscos">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=600&h=400&fit=crop" alt="Ceviche de Camarón" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Mariscos</span>
+            <h3 class="menu-card__name">Ceviche de Camarón</h3>
+            <p class="menu-card__desc">Camarón fresco, limón, cebolla morada y ají amarillo.</p>
+            <p class="menu-card__price">$44.500</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="mariscos">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1633504581786-316c8002b1b2?w=600&h=400&fit=crop" alt="Camarones fritos" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Mariscos</span>
+            <h3 class="menu-card__name">Aero de Camarón</h3>
+            <p class="menu-card__desc">Camarón rebozado y frito, aireado y crujiente, con salsa tártara.</p>
+            <p class="menu-card__price">$39.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card menu-card--featured" data-category="mariscos">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&h=400&fit=crop" alt="Cazuela de Mariscos" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge menu-card__badge--gold">Para compartir</span>
+            <h3 class="menu-card__name">Cazuela de Mariscos</h3>
+            <p class="menu-card__desc">Cazuela humeante con camarón, calamar, pescado y leche de coco.</p>
+            <p class="menu-card__price">$58.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="mariscos">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=400&fit=crop" alt="Pescado en Salsa" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Mariscos</span>
+            <h3 class="menu-card__name">Pescado en Salsa de Mariscos</h3>
+            <p class="menu-card__desc">Filete de pescado bañado en salsa de mariscos al ajillo.</p>
+            <p class="menu-card__price">$52.000</p>
+          </div>
+        </article>
+
+        <!-- COMIDA RÁPIDA -->
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1612392062798-2307654d3384?w=600&h=400&fit=crop" alt="Perro caliente super" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Perro Super</h3>
+            <p class="menu-card__desc">Salchicha premium, papas chip, queso cheddar, salsas de la casa, huevo de codorniz.</p>
+            <p class="menu-card__price">$18.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1619970878867-4c0c7027c7de?w=600&h=400&fit=crop" alt="Perro caliente mini" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Perro Mini</h3>
+            <p class="menu-card__desc">Salchicha pequeña, papas chip, queso, salsas. Perfecto para niños.</p>
+            <p class="menu-card__price">$12.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card menu-card--featured" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&h=400&fit=crop" alt="Choriperro" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge menu-card__badge--gold">Favorito</span>
+            <h3 class="menu-card__name">Choriperro</h3>
+            <p class="menu-card__desc">Chorizo argentino a la parrilla, chimichurri, cebolla caramelizada, papas chip.</p>
+            <p class="menu-card__price">$22.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=400&fit=crop" alt="Perro suizo" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Perro Suizo</h3>
+            <p class="menu-card__desc">Salchicha, tocineta crocante, queso suizo fundido, cebolla grillé, papas.</p>
+            <p class="menu-card__price">$20.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1639744020223-c155084cd5a6?w=600&h=400&fit=crop" alt="Salchipapas ranchera" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Salchipapas Ranchera</h3>
+            <p class="menu-card__desc">Papas fritas, salchicha ranchera cortada, queso cheddar, salsas variadas.</p>
+            <p class="menu-card__price">$19.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1630431341973-026d13052c4e?w=600&h=400&fit=crop" alt="Salchipapas suiza" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Salchipapas Suiza</h3>
+            <p class="menu-card__desc">Papas fritas, salchicha suiza, queso fundido, tocineta, salsas especiales.</p>
+            <p class="menu-card__price">$23.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card menu-card--featured" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1625937329935-83eb542c0d18?w=600&h=400&fit=crop" alt="Picada mixta" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge menu-card__badge--gold">Para compartir</span>
+            <h3 class="menu-card__name">Picada Mixta</h3>
+            <p class="menu-card__desc">Chorizo, morcilla, carne, pollo, papas, yuca, plátano. Para 2-3 personas.</p>
+            <p class="menu-card__price">$55.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=600&h=400&fit=crop" alt="Alitas BBQ" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Alitas BBQ</h3>
+            <p class="menu-card__desc">12 alitas crocantes con salsa BBQ o buffalo, apio y aderezo ranch.</p>
+            <p class="menu-card__price">$28.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="rapida">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&h=400&fit=crop" alt="Dedos de pollo" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Rápida</span>
+            <h3 class="menu-card__name">Dedos de Pollo</h3>
+            <p class="menu-card__desc">Tiras de pechuga empanizadas, crujientes por fuera, jugosas por dentro.</p>
+            <p class="menu-card__price">$25.000</p>
+          </div>
+        </article>
+
+        <!-- ACOMPAÑANTES -->
+        <article class="menu-card" data-category="acompanantes">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&h=400&fit=crop" alt="Papas fritas" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Acompañante</span>
+            <h3 class="menu-card__name">Papas Fritas</h3>
+            <p class="menu-card__desc">Papas cortadas a mano, fritas en aceite de girasol, sal marina.</p>
+            <p class="menu-card__price">$12.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="acompanantes">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=400&fit=crop" alt="Yuca frita" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Acompañante</span>
+            <h3 class="menu-card__name">Yuca Frita</h3>
+            <p class="menu-card__desc">Yuca costeña frita, crocante por fuera, suave por dentro.</p>
+            <p class="menu-card__price">$10.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="acompanantes">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop" alt="Ensalada fresca" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Acompañante</span>
+            <h3 class="menu-card__name">Ensalada de la Casa</h3>
+            <p class="menu-card__desc">Lechuga, tomate, pepino, cebolla morada, vinagreta de mostaza y miel.</p>
+            <p class="menu-card__price">$15.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="acompanantes">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?w=600&h=400&fit=crop" alt="Arroz" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Acompañante</span>
+            <h3 class="menu-card__name">Arroz Blanco</h3>
+            <p class="menu-card__desc">Arroz cocido al punto, con ajo y mantequilla.</p>
+            <p class="menu-card__price">$8.000</p>
+          </div>
+        </article>
+
+        <!-- POSTRES -->
+        <article class="menu-card" data-category="postres">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&h=400&fit=crop" alt="Tres leches" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Postre</span>
+            <h3 class="menu-card__name">Tres Leches</h3>
+            <p class="menu-card__desc">Bizcocho empapado en tres leches, cubierto con crema batida.</p>
+            <p class="menu-card__price">$18.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="postres">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&h=400&fit=crop" alt="Flan" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Postre</span>
+            <h3 class="menu-card__name">Flan de Caramelo</h3>
+            <p class="menu-card__desc">Flan casero con caramelo líquido, textura suave y cremosa.</p>
+            <p class="menu-card__price">$16.000</p>
+          </div>
+        </article>
+
+        <article class="menu-card" data-category="postres">
+          <div class="menu-card__image">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop" alt="Brownie" loading="lazy" />
+          </div>
+          <div class="menu-card__content">
+            <span class="menu-card__badge">Postre</span>
+            <h3 class="menu-card__name">Brownie con Helado</h3>
+            <p class="menu-card__desc">Brownie de chocolate caliente, helado de vainilla, salsa de chocolate.</p>
+            <p class="menu-card__price">$20.000</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__brand" href="index.html">
+        La Carreta <em>Gourmet</em>
+      </a>
+      <nav class="footer__links" aria-label="Pie de página">
+        <a href="index.html#nosotros">Nosotros</a>
+        <a href="menu.html">Menú</a>
+        <a href="bebidas.html">Bebidas</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <a
+        class="footer__ig"
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Síguenos en Instagram"
+      >
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer__copy">
+      © <span data-year></span> La Carreta Gourmet · Cocina costeña a la brasa
+    </p>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    // Menu filtering for this page
+    document.addEventListener('DOMContentLoaded', () => {
+      const filters = document.querySelectorAll('[data-category]');
+      const cards = document.querySelectorAll('.menu-card');
+
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.getAttribute('data-category');
+          
+          filters.forEach(f => f.classList.remove('is-active'));
+          btn.classList.add('is-active');
+
+          cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

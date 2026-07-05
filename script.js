@@ -39,12 +39,30 @@
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: "0px 0px -60px 0px",
+        threshold: 0,
+        rootMargin: "0px 0px 0px 0px",
       }
     );
 
-    revealElements.forEach((el) => observer.observe(el));
+    revealElements.forEach((el) => {
+      // If already in viewport at load time, reveal immediately
+      const rect = el.getBoundingClientRect();
+      const inViewport =
+        rect.top < window.innerHeight && rect.bottom > 0;
+      if (inViewport) {
+        if (el.hasAttribute("data-stagger")) {
+          const children = Array.from(el.children).filter(
+            (child) => !child.hasAttribute("hidden")
+          );
+          children.forEach((child, index) => {
+            child.style.setProperty("--stagger-index", String(index));
+          });
+        }
+        el.classList.add("is-visible");
+      } else {
+        observer.observe(el);
+      }
+    });
   }
 
   /* ---------- Mobile navigation ---------- */
@@ -190,10 +208,27 @@
           if (matches) visibleCount += 1;
         });
 
+        // Update button text with count
+        const originalText = button.textContent.replace(/\s*\(\d+\)/, '');
+        button.textContent = `${originalText} (${visibleCount})`;
+
         if (note) {
           note.hidden = visibleCount > 0;
         }
       });
+      
+      // Initialize counts on load
+      const filter = button.getAttribute("data-filter");
+      let count = 0;
+      if (filter === "all") {
+        count = dishes.length;
+      } else {
+        dishes.forEach((dish) => {
+          if (dish.getAttribute("data-section") === filter) count++;
+        });
+      }
+      const originalText = button.textContent;
+      button.textContent = `${originalText} (${count})`;
     });
   }
 
@@ -301,5 +336,45 @@
     initMenuFilter();
     renderStarRatings();
     initReviewsCarousel();
+    initScrollAnimations();
   });
 })();
+
+
+  /* ---------- Premium Scroll Animations ---------- */
+  function initScrollAnimations() {
+    const elements = document.querySelectorAll('.menu-preview__card, .menu-card, .bebida-card, .review, .about__text, .about__media');
+    
+    if (!elements.length) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      elements.forEach(el => el.style.opacity = '1');
+      return;
+    }
+
+    // Set initial state
+    elements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 100); // Stagger effect
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    elements.forEach(el => observer.observe(el));
+  }
