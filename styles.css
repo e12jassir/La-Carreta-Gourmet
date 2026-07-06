@@ -231,6 +231,18 @@ html.js [data-stagger] > * {
   padding: 0 var(--space-4);
   background: var(--charcoal);
   border-bottom: 1px solid var(--border);
+  transition: background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+/* Scrolled (glass) state — toggled via JS on scrollY > 50 */
+.nav--scrolled {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom-color: transparent;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .nav__brand {
@@ -696,6 +708,66 @@ section[id] {
   .hero__content {
     max-width: var(--container-max);
   }
+}
+
+/* ---------- Hero entrance animations (additive, CSS-only) ---------- */
+@keyframes hero-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* Slow zoom on the hero background image — premium, continuous, subtle */
+.hero__bg img {
+  animation: hero-kenburns 18s var(--ease-out) 0.2s forwards;
+}
+
+/* Staggered entrance — blur-in on the title (the hero moment), fade-up on the rest */
+.hero__kicker {
+  animation: hero-fade-up 0.7s var(--ease-out) 0.15s both;
+}
+
+.hero__title {
+  animation: hero-blur-in 0.9s var(--ease-out) 0.3s both;
+}
+
+.hero__lede {
+  animation: hero-fade-up 0.7s var(--ease-out) 0.55s both;
+}
+
+.hero__rating {
+  animation: hero-fade-up 0.7s var(--ease-out) 0.7s both;
+}
+
+.hero__actions {
+  animation: hero-fade-up 0.7s var(--ease-out) 0.85s both;
 }
 
 /* ---------- About ---------- */
@@ -1300,6 +1372,12 @@ section[id] {
 
 .menu-preview__head .section-title {
   margin-bottom: var(--space-3);
+}
+
+/* Center the subtext block itself (text-align alone won't, due to max-width) */
+.menu-preview__head .section-sub {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-preview__grid {

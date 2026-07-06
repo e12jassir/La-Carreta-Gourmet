@@ -328,6 +328,17 @@
     updateButtons();
   }
 
+  /* ---------- Sticky nav scrolled state (glass effect) ---------- */
+  function initNavScroll() {
+    const nav = document.querySelector("[data-nav]");
+    if (!nav) return;
+    const onScroll = () => {
+      nav.classList.toggle("nav--scrolled", window.scrollY > 50);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initReveal();
     initMobileNav();
@@ -336,6 +347,7 @@
     initMenuFilter();
     renderStarRatings();
     initReviewsCarousel();
+    initNavScroll();
     initScrollAnimations();
   });
 })();
